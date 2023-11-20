@@ -90,11 +90,49 @@ if(isset($_GET["act"]) && ($_GET["act"] !="")){
             include "donhang/add.php";
             break;
         case 'detaildh':
+            if (isset($_GET["id"]) && $_GET["id"] > 0) {
+                $id = $_GET["id"];
+                $hd = load_one_hoa_don($id);
+            }
             include "donhang/detail.php";
             break;
-        case 'updatedh':
+        case 'xoahd':
+            if (isset($_GET["id"]) && $_GET["id"] > 0) {
+                $id = $_GET["id"];
+                delete_hd($id);
+                }
+            $listhd = load_all_hoa_don();
+            include "donhang/list.php";
+            break;
+        case 'suahd':
+            if (isset($_GET["id"]) && $_GET["id"] > 0) {
+                $id = $_GET["id"];
+                $hd = load_one_hoa_don($id);
+            }else{
+                echo "Lỗi id";
+            }
             include "donhang/update.php";
             break;
+        case 'updatedh':
+            if (isset($_POST['capnhat'])) {
+                $id_hoa_don=$_POST['id_hoa_don'];
+                $ho_ten=$_POST['ho_ten'];
+                $sdt=$_POST['sdt'];
+                $dia_chi=$_POST['dia_chi'];
+                $ten_san_pham=$_POST['ten_san_pham'];
+                $gia=$_POST['gia'];
+                $ma_khuyen_mai=$_POST['ma_khuyen_mai'];
+                $phuong_thuc_thanh_toan=$_POST['phuong_thuc_thanh_toan'];
+                $tong_tien=$_POST['tong_tien'];
+                $trang_thai=$_POST['trang_thai'];
+                update_hd($id_hoa_don,$ho_ten,$sdt,$dia_chi,$ten_san_pham,$gia,$ma_khuyen_mai,$phuong_thuc_thanh_toan,$tong_tien,$trang_thai);
+                $thongbao = "Sửa thành công";
+                
+            }
+            $listhd = load_all_hoa_don();
+            include "donhang/update.php";
+            break;
+            
         //end don hang//
 
         //binh luan//
@@ -159,7 +197,7 @@ if(isset($_GET["act"]) && ($_GET["act"] !="")){
                 $link=$_POST['link'];
 
                 $imgbanner=$_FILES['img']['name'];
-                $target_dir="../../../public/images/banner/";
+                $target_dir="../../upload/";
                 $target_file=$target_dir . basename($_FILES["img"]["name"]);
                 move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
                 insert_banner($imgbanner,$link);
@@ -180,7 +218,7 @@ if(isset($_GET["act"]) && ($_GET["act"] !="")){
                     // $imgbanner=$_POST['img'];
                     $link=$_POST['link'];
                     $imgbanner=$_FILES['img']['name'];
-                    $target_dir="../../../public/images/banner/";
+                    $target_dir="../../upload/";
                     $target_file=$target_dir . basename($_FILES["img"]["name"]);
                     move_uploaded_file($_FILES['img']['tmp_name'], $target_file);
                     update_banner($id_banner, $imgbanner, $link);

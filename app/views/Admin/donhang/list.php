@@ -46,9 +46,9 @@
                     <td>24.845.000VND</td>
                     <td><?php echo $hd['trang_thai']; ?></td>
                     <td><div class="btn-group">
-                      <a class="btn btn-outline-success" href="index.php?act=detaildh" role="button">Xem</a>
-                      <a class="btn btn-outline-secondary" href="index.php?act=updatedh" role="button">Sửa</a>
-                      <a class="btn btn-outline-danger" href="#" role="button">Xóa</a>
+                      <a class="btn btn-outline-success" href="index.php?act=detaildh&id=<?php echo $hd["id_hoa_don"]; ?>" role="button">Xem</a>
+                      <a class="btn btn-outline-secondary" href="index.php?act=suahd&id=<?php echo $hd["id_hoa_don"]; ?>" role="button">Sửa</a>
+                      <a class="btn btn-outline-danger" href="index.php?act=xoahd&id=<?php echo $hd["id_hoa_don"]; ?>" role="button">Xóa</a>
 
                     </div></td>
                   </tr>

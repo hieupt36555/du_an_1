@@ -45,7 +45,8 @@
                     <td><?php echo $bl['ngay_binh_luan']; ?></td>
                     <td>Tốt</td>
                     <td><div class="btn-group">
-                      <a class="btn btn-outline-secondary" href="index.php?act=updatebl&id=<?php echo $bl["id_binh_luan"]; ?>" role="button">Sửa</a>
+                      <!-- <a class="btn btn-outline-secondary" href="index.php?act=updatebl&id= role="button">Sửa</a> -->
+
                       <a class="btn btn-outline-danger" role="button" href="index.php?act=xoabl&id=<?php echo $bl["id_binh_luan"]; ?>" >Xóa</a>
 
                     </div></td>

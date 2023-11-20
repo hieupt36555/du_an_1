@@ -1,3 +1,9 @@
+<?php
+if (isset($hd) && is_array($hd)) {
+    // extract($hd);
+}
+
+?>
 <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
@@ -25,6 +31,7 @@
           </div>
           <!-- info row -->
           <div class="row invoice-info">
+          
             <div class="col-sm-6 invoice-col">
               Từ
               <address>
@@ -39,15 +46,15 @@
             <div class="col-sm-6 invoice-col">
               Đến
               <address>
-                <strong>Hoàng Hải</strong><br>
-                Thôn An Quỳnh, Phúc Thịnh<br>
-                Chiêm Hóa, Tuyên Quang<br>
-                Phone: 0352441179<br>
-                Email: hoanghai07092003@gmail.com
+                <strong><?php echo $hd['ho_ten']?></strong><br>
+                <?php echo $hd['dia_chi']?><br>
+               
+                Phone: <?php echo $hd['sdt']?><br>
+                
               </address>
             </div>
             <!-- /.col -->
-
+            
             <!-- /.col -->
           </div>
           <!-- /.row -->
@@ -67,11 +74,11 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>iPhone 15 pro</td>
-                    <td>27.550.000VND</td>
+                    <td><?php echo $hd['id_hoa_don']?></td>
+                    <td><?php echo $hd['ten_san_pham']?></td>
+                    <td><?php echo $hd['gia']?>VND</td>
                     <td><img style="width: 150px; object-fit: contain;" src="dist/img/iphone 15 pro tintan.jpeg" alt=""></td>
-                    <td>Thanh toán khi nhận hàng</td>
+                    <td><?php echo $hd['phuong_thuc_thanh_toan']?></td>
                   </tr>
                 </tbody>
               </table>
@@ -97,11 +104,11 @@
                 <table class="table">
                   <tr>
                     <th style="width:50%">Giá:</th>
-                    <td>27.550.000VND</td>
+                    <td><?php echo $hd['gia']?>VNĐ</td>
                   </tr>
                   <tr>
                     <th>Mã giảm giá:</th>
-                    <td>10%</td>
+                    <td>0%</td>
                   </tr>
                   <tr>
                     <th>Phí vận chuyển:</th>
@@ -109,7 +116,7 @@
                   </tr>
                   <tr>
                     <th>Tổng tiền:</th>
-                    <td>24.845.000VND</td>
+                    <td><?php echo $hd['tong_tien']?>VNĐ</td>
                   </tr>
                 </table>
               </div>

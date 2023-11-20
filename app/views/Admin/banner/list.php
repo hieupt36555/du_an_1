@@ -39,7 +39,7 @@
                   <tr>
                     <td>   <?php echo $banner['id_banner']; ?></td>
                     
-                    <td><img src="../../../public/images/banner/<?php echo $banner['img']; ?>" alt="" height= '100px'>
+                    <td><img src="../../upload/<?php echo $banner['img']; ?>" alt="" height= '100px'>
                     </td>
                     <td> <?php echo $banner['link']; ?></td>
                     <td>

@@ -125,7 +125,7 @@ function insert_hoa_don($ho_ten,$sdt,$dia_chi,$ten_san_pham,$gia,$ma_khuyen_mai,
     $sql = "INSERT INTO hoa_don(ho_ten,sdt,dia_chi,ten_san_pham,gia,ma_khuyen_mai,phuong_thuc_thanh_toan,tong_tien,trang_thai) VALUES ('$ho_ten','$sdt','$dia_chi','$ten_san_pham','$gia','$ma_khuyen_mai','$phuong_thuc_thanh_toan','$tong_tien','$trang_thai')";
     pdo_execute($sql);
 }
-function delete_hoa_don($id_hoa_don)
+function delete_hd($id_hoa_don)
 {
     $sql = "DELETE FROM hoa_don WHERE id_hoa_don= '$id_hoa_don'";
     pdo_query($sql);
@@ -135,15 +135,16 @@ function load_all_hoa_don(){
     $listhd = pdo_query($sql);
     return $listhd;
 }
-// function loadOnebanner($id_banner)
-// {
-//     $sql = "SELECT * FROM banner WHERE id_banner = '$id_banner'";
-//     $bner = pdo_query_one($sql);
-//     return $bner;
-// }
-// function update_banner($id_banner, $imgbanner, $link){
-//     $sql="UPDATE banner set img='".$imgbanner."', link='".$link."' WHERE id_banner = ".$id_banner;
-//     pdo_execute($sql);
-// }
+function load_one_hoa_don($id_hoa_don)
+{
+    $sql = "SELECT * FROM hoa_don WHERE id_hoa_don = '$id_hoa_don'";
+    $hd = pdo_query_one($sql);
+    return $hd;
+}
+
+function update_hd($id_hoa_don, $ho_ten, $sdt, $dia_chi, $ten_san_pham, $gia, $ma_khuyen_mai, $phuong_thuc_thanh_toan, $tong_tien, $trang_thai){
+    $sql="UPDATE hoa_don SET ho_ten='$ho_ten', sdt='$sdt',dia_chi='$dia_chi',ten_san_pham='$ten_san_pham',gia='$gia',ma_khuyen_mai='$ma_khuyen_mai',phuong_thuc_thanh_toan='$phuong_thuc_thanh_toan',tong_tien='$tong_tien',trang_thai='$trang_thai' WHERE id_hoa_don=".$id_hoa_don;
+    pdo_execute($sql);
+}
 //end hoa don///
 ?>
